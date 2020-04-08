@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"pratice/config"
+	"pratice/controllers"
 	"pratice/structs"
 
 	"github.com/dgrijalva/jwt-go"
@@ -14,9 +15,12 @@ import (
 
 func main() {
 	router := gin.Default()
+	// User Route
 	router.POST("/login", loginHandler)
 	router.POST("/register", registHandler)
 	router.GET("/me", auth, me)
+	// Note Route
+	router.GET("/note", auth, controllers.GetNote)
 	router.Run(":3000")
 }
 func me(c *gin.Context) {

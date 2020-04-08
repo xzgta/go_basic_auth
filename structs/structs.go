@@ -6,3 +6,9 @@ type User struct {
 	Password string `form:"password" json:"password"`
 	Token    string `form:"token" json:"token"`
 }
+
+type Note struct {
+	Id    string `form:"id_note" json:"id_note"`
+	Title string `form:"title" json:"title"`
+	Note  string `form:"note" json:"note"`
+}
